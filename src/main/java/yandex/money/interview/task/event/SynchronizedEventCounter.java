@@ -1,13 +1,13 @@
 package yandex.money.interview.task.event;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class SynchronizedEventCounter implements EventCounter {
-    private List<Long> eventTimestamps = new LinkedList<>();
+    private List<Long> eventTimestamps = new ArrayList<>();
     private ReentrantLock lock = new ReentrantLock();
 
     @Override
