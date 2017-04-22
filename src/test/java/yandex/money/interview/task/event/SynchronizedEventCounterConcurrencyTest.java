@@ -55,12 +55,12 @@ public class SynchronizedEventCounterConcurrencyTest {
         int actionsToPerformAtOnce = ACTIONS_TO_PERFORM_AT_ONCE;
         int numOfPerforms = 3;
         int countToExpect = actionsToPerformAtOnce * numOfPerforms * COUNT_PER_ACTION;
-        //Несколько раз запускаем потоки с операциями через каждую секунду
+        //РќРµСЃРєРѕР»СЊРєРѕ СЂР°Р· Р·Р°РїСѓСЃРєР°РµРј РїРѕС‚РѕРєРё СЃ РѕРїРµСЂР°С†РёСЏРјРё С‡РµСЂРµР· РєР°Р¶РґСѓСЋ СЃРµРєСѓРЅРґСѓ
         performWithDelay(() -> {
             performCounterActions(actionsToPerformAtOnce);
             return null;
         }, numOfPerforms, 1000);
-        //Ждем, пока сервис завершит все задачи
+        //Р–РґРµРј, РїРѕРєР° СЃРµСЂРІРёСЃ Р·Р°РІРµСЂС€РёС‚ РІСЃРµ Р·Р°РґР°С‡Рё
         for (int i = 0; i < numOfPerforms; i++) {
             completionService.take();
         }
